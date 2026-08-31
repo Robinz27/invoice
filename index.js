@@ -17,6 +17,15 @@ function setText(id, value) {
   if (el) el.textContent = value;
 }
 
+// ค่าที่มาจาก data.js บางช่อง (ตัวอักษรสีแดง/เอียงในต้นแบบ) ถ้ายังไม่มีการเชื่อม
+// ข้อมูลจริง (ค่าว่าง/ไม่มี key) ให้ตกกลับไปแสดง placeholder แบบเดียวกับในภาพ
+// ต้นแบบ เช่น "[bill-to-name]" — เมื่อใส่ข้อมูลจริงลง data.js แล้วค่านี้จะถูก
+// แทนที่ด้วยข้อมูลจริงโดยอัตโนมัติ
+function textOrPlaceholder(value, placeholder) {
+  const joined = Array.isArray(value) ? value.filter(Boolean).join("\n") : value;
+  return joined && String(joined).trim() ? joined : placeholder;
+}
+
 function renderInvoice(data) {
   // Company
   setText("companyName", data.company.name);
@@ -27,9 +36,14 @@ function renderInvoice(data) {
     logoEl.src = data.company.logo;
   }
 
-  // Bill To / Ship To
-  setText("billToName", data.billTo.name);
-  setText("billToAddress", data.billTo.address.join("\n"));
+  // Bill To (ช่องที่ต้นแบบทำเป็น placeholder สีแดง [bill-to-name] / [bill-to-addr])
+  setText("billToName", textOrPlaceholder(data.billTo && data.billTo.name, "[bill-to-name]"));
+  setText(
+    "billToAddress",
+    textOrPlaceholder(data.billTo && data.billTo.address, "[bill-to-addr]")
+  );
+
+  // Ship To
   setText("shipToName", data.shipTo.name);
   setText("shipToAddress", data.shipTo.address.join("\n"));
 
@@ -60,9 +74,9 @@ function renderInvoice(data) {
 
   setText("subtotal", formatCurrency(subtotal));
 
-  // Signature & terms
-  setText("signature", data.signature);
-  setText("terms", data.terms);
+  // Signature & terms (ช่องที่ต้นแบบทำเป็น placeholder สีแดง [signature] / [conditions])
+  setText("signature", textOrPlaceholder(data.signature, "[signature]"));
+  setText("terms", textOrPlaceholder(data.terms, "[conditions]"));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
