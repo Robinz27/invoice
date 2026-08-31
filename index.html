@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Invoice - Sripatum University</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto:wght@400;500;700&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <main class="invoice">
+    <!-- Header: title + logo -->
+    <header class="invoice__header">
+      <h1 class="invoice__title">INVOICE</h1>
+      <img class="invoice__logo" src="assets/logo.png" alt="Company logo" />
+    </header>
+
+    <!-- Company info -->
+    <section class="invoice__company">
+      <p class="invoice__company-name" id="companyName"></p>
+      <p class="invoice__company-address" id="companyAddress"></p>
+    </section>
+
+    <hr class="invoice__rule invoice__rule--top" />
+
+    <!-- Bill To / Ship To / Invoice meta -->
+    <section class="invoice__info">
+      <div class="invoice__info-block">
+        <h2 class="invoice__label">BILL TO</h2>
+        <p class="invoice__value invoice__value--accent" id="billToName"></p>
+        <p class="invoice__value invoice__value--accent" id="billToAddress"></p>
+      </div>
+
+      <div class="invoice__info-block">
+        <h2 class="invoice__label">SHIP TO</h2>
+        <p class="invoice__value" id="shipToName"></p>
+        <p class="invoice__value" id="shipToAddress"></p>
+      </div>
+
+      <div class="invoice__info-block invoice__info-block--meta">
+        <div class="invoice__meta-row">
+          <span class="invoice__label">INVOICE #</span>
+          <span class="invoice__value" id="invoiceNumber"></span>
+        </div>
+        <div class="invoice__meta-row">
+          <span class="invoice__label">INVOICE DATE</span>
+          <span class="invoice__value" id="invoiceDate"></span>
+        </div>
+        <div class="invoice__meta-row">
+          <span class="invoice__label">P.O.#</span>
+          <span class="invoice__value" id="poNumber"></span>
+        </div>
+        <div class="invoice__meta-row">
+          <span class="invoice__label">DUE DATE</span>
+          <span class="invoice__value" id="dueDate"></span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="invoice__rule invoice__rule--thick" />
+
+    <!-- Items table -->
+    <table class="invoice__table">
+      <thead>
+        <tr>
+          <th class="col-qty">QTY</th>
+          <th class="col-desc">DESCRIPTION</th>
+          <th class="col-price">UNIT PRICE</th>
+          <th class="col-amount">AMOUNT</th>
+        </tr>
+      </thead>
+      <tbody id="itemsBody">
+        <!-- แถวรายการสินค้าถูกสร้างแบบไดนามิกโดย index.js จาก data.js -->
+      </tbody>
+      <tfoot>
+        <tr class="invoice__subtotal-row">
+          <td colspan="2"></td>
+          <td class="invoice__subtotal-label">Subtotal</td>
+          <td class="col-amount" id="subtotal"></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- Signature -->
+    <p class="invoice__signature" id="signature"></p>
+
+    <!-- Footer -->
+    <footer class="invoice__footer">
+      <p class="invoice__thankyou">Thank you</p>
+      <div class="invoice__terms">
+        <h2 class="invoice__label">TERMS &amp; CONDITIONS</h2>
+        <p class="invoice__value invoice__value--accent" id="terms"></p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
