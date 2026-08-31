@@ -11,7 +11,7 @@
   --color-muted: #444444;
   --color-border: #111111;
   --font-body: "Roboto", Arial, sans-serif;
-  --font-script: "Dancing Script", cursive;
+  --font-script: "Yellowtail", cursive;
 }
 
 * {
@@ -112,6 +112,11 @@ body {
 
 .invoice__value--accent {
   color: var(--color-accent);
+  font-style: italic;
+}
+
+.invoice__label--accent {
+  color: var(--color-accent);
 }
 
 .invoice__meta-row {
@@ -175,7 +180,7 @@ body {
   text-align: right;
   font-style: italic;
   color: var(--color-accent);
-  margin: 18px 0 34px;
+  margin: 54px 0 46px;
 }
 
 /* Footer */
