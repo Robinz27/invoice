@@ -1,4 +1,4 @@
-รหัสนักศึกษา (Student ID): [STUDENT-ID]
-ชื่อ-นามสกุล (Full Name): [ชื่อ-นามสกุล]
+รหัสนักศึกษา (Student ID): 68034768
+ชื่อ-นามสกุล (Full Name): รัตนตรัย โลซาเรส
 รายวิชา: CSI205 การพัฒนาโปรแกรมส่วนหน้า (Front End Software Development)
 งาน: Lab Invoice - w02

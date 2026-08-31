@@ -1,235 +1,40 @@
-/* index.css
-   สไตล์ของหน้า Invoice ให้ตรงกับภาพต้นแบบ (assets/invoice-template-original.png)
-   สี/ระยะห่างถูกวัดค่าออกมาจากภาพต้นแบบ:
-   - เส้นขอบ/ตัวอักษรหลัก: เกือบดำ (#111111)
-   - จุดเน้น (BILL TO, เส้นคั่นตาราง, TERMS): แดงกรั่ง (#931f27)
-*/
-
-:root {
-  --color-ink: #111111;
-  --color-accent: #931f27;
-  --color-muted: #444444;
-  --color-border: #111111;
-  --font-body: "Roboto", Arial, sans-serif;
-  --font-script: "Yellowtail", cursive;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  padding: 32px 16px;
-  background: #e9e9e9;
-  font-family: var(--font-body);
-  color: var(--color-ink);
-  display: flex;
-  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.75rem;
+  width: 600px;
+  margin: 0 auto;
 }
 
-.invoice {
-  width: 100%;
-  max-width: 720px;
-  background: #ffffff;
-  border: 2px solid var(--color-border);
-  border-radius: 18px;
-  padding: 40px 48px 32px;
+h1 {
+  text-align: center;
+  font-family: monospace;
+  color: blueviolet;
 }
 
-/* Header */
-.invoice__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 18px;
-}
-
-.invoice__title {
-  margin: 0;
-  font-size: 2.6rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.invoice__logo {
-  height: 56px;
-  width: auto;
-  object-fit: contain;
-}
-
-/* Company info */
-.invoice__company {
-  margin-bottom: 22px;
-}
-
-.invoice__company-name {
-  margin: 0;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.invoice__company-address {
-  margin: 2px 0 0;
-  font-size: 0.9rem;
-  color: var(--color-muted);
-  white-space: pre-line;
-}
-
-.invoice__rule {
-  border: none;
-  border-top: 1px solid var(--color-ink);
-  margin: 0 0 18px;
-}
-
-.invoice__rule--thick {
-  border-top-width: 2px;
-  border-top-color: var(--color-accent);
-  margin-top: 18px;
-}
-
-/* Bill To / Ship To / Meta */
-.invoice__info {
-  display: grid;
-  grid-template-columns: 1.1fr 1.3fr 1.1fr;
-  gap: 16px;
-  margin-bottom: 4px;
-}
-
-.invoice__label {
-  margin: 0 0 6px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
-
-.invoice__value {
-  margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.4;
-  white-space: pre-line;
-}
-
-.invoice__value--accent {
-  color: var(--color-accent);
-  font-style: italic;
-}
-
-.invoice__label--accent {
-  color: var(--color-accent);
-}
-
-.invoice__meta-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 0.85rem;
-}
-
-.invoice__info-block--meta .invoice__label {
-  margin-bottom: 0;
-}
-
-.invoice__info-block--meta .invoice__meta-row + .invoice__meta-row {
-  margin-top: 6px;
-}
-
-/* Items table */
-.invoice__table {
+table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.88rem;
 }
 
-.invoice__table thead th {
-  text-align: left;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 0 8px;
-}
-
-.invoice__table th.col-price,
-.invoice__table th.col-amount,
-.invoice__table td.col-price,
-.invoice__table td.col-amount {
-  text-align: right;
-}
-
-.invoice__table th.col-qty,
-.invoice__table td.col-qty {
-  width: 42px;
-}
-
-.invoice__table tbody td {
-  padding: 6px 0;
-  vertical-align: top;
-}
-
-.invoice__subtotal-row td {
-  padding-top: 10px;
-  font-weight: 700;
-}
-
-.invoice__subtotal-label {
-  text-align: right;
-  padding-right: 12px;
-}
-
-/* Signature */
-.invoice__signature {
-  text-align: right;
+.undefined {
+  color: red;
   font-style: italic;
-  color: var(--color-accent);
-  margin: 54px 0 46px;
 }
 
-/* Footer */
-.invoice__footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  padding-top: 8px;
+.bold {
+  font-weight: bold;
 }
 
-.invoice__thankyou {
-  font-family: var(--font-script);
-  font-size: 2.1rem;
-  margin: 0;
-  padding-right: 24px;
-  border-right: 1px solid var(--color-ink);
+.border-y {
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+  padding: 0.25rem 0rem;
 }
 
-.invoice__terms {
-  text-align: left;
+.margin-top-1 {
+  margin-top: 1rem;
 }
 
-.invoice__terms .invoice__label {
-  margin-bottom: 4px;
-}
-
-.invoice__terms .invoice__value {
-  font-size: 0.8rem;
-  max-width: 320px;
-}
-
-@media (max-width: 640px) {
-  .invoice {
-    padding: 28px 22px;
-  }
-
-  .invoice__info {
-    grid-template-columns: 1fr;
-  }
-
-  .invoice__footer {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
-
-  .invoice__thankyou {
-    border-right: none;
-    padding-right: 0;
-  }
+.margin-top-6 {
+  margin-top: 6rem;
 }
